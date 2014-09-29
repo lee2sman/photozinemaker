@@ -3,13 +3,15 @@ import processing.pdf.*;
 PFont nameFont, titleFont;
 String titleName = "Name of Zine";
 String artistName = "Artist Name";
+int zineHeight = 2550; // half fold zine is 8.5" by 5.5" = 2550 x 1650
+int zineWidth = 1650;
 int maxImages = 13; // total num of images
 int imageIndex = 0; //initial image is 0
 PImage[] images = new PImage[maxImages];
 //loading images into an array
 
 void setup() {
-  size(400, 400, PDF, "filename.pdf");
+  size(zineHeight, zineWidth, PDF, "filename.pdf");
   nameFont = createFont("Futura", 24); //load hipster font
   titleFont = createFont("Futura", 18);
   
@@ -23,10 +25,10 @@ void draw() {
   if (frameCount == 1){
    textFont(titleFont,24);
    fill(0);
-   text(titleName,width/2,350);
+   text(titleName,width/2,height-75);
    textFont(nameFont,18);
    fill(0);
-   text(artistName,width/2,375);
+   text(artistName,width/2,height-50);
  
   }
     
